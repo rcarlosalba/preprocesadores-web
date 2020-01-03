@@ -26,3 +26,28 @@ generaría
     </span>
 </div>
 ```
+### Es necesario asegurarse de selecionar una forma de indentación, ya sea TAB o espaciado, es posible que Pug no reconozca si se usan los dos. 
+
+Para los metatags: 
+
+```HTML
+head 
+    meta(charset="UTF-8")
+```
+para las hojas de estilo
+```HTML
+head 
+    link(rel="stylesheet", href="unicacion/archivo.css")
+```
+uns estructura básica se escribiría asi: 
+```HTML
+doctype html
+    head
+        meta(charset="UTF-8")
+        link(rel="stylesheet", href="unicacion/archivo.css")
+    body 
+        header
+            h1 Platzi-Preprocesadores
+            a.boton //así agregamos clases
+```
+
