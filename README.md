@@ -44,10 +44,22 @@ uns estructura básica se escribiría asi:
 doctype html
     head
         meta(charset="UTF-8")
-        link(rel="stylesheet", href="unicacion/archivo.css")
+        link(rel="stylesheet", href="ubicacion/archivo.css")
     body 
         header
             h1 Platzi-Preprocesadores
             a.boton //así agregamos clases
+        section.intro
+            .intro__imagen (prepros como compilador de preprocesadores, entiende que esto es un DIV) 
+                img(src="images/imagen.jpg")
+            // cuando solo hay un elemento hijo tambien se puede escribir
+            .intro__imagen: img(src="images/imagen.jpg")
+            .intro__contenido
+                h2 Titulo 2
+                p lorem
+                a.boton Leer más
 ```
+
+## Variables
+
 
