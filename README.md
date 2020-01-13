@@ -61,5 +61,32 @@ doctype html
 ```
 
 ## Variables
+HTML no tiene variables de forma nativa, esa es una de las fortalezas de los preprocesadores. 
 
+Se recomienda que las variables se coloquen antes de todo para evitar conflictos. 
+se declaran: 
+```HTML
+-var titulo = "Bienvenido a GitHub"
+```
 
+Se invocan de la siguiente forma: 
+(dentro de un documento de PUG y una estructura HTML)
+```HTML
+h2= titulo
+```
+El signo igual debe ir pegado a la etiqueta, otra forma de invocar es: 
+```HTML 
+h2 #{titulo}
+```
+y puede causar menos confusión. Con todo se pueden hacer arreglos o arrays. 
+se declaran: 
+```HTML 
+-var titulos = ["Titulo1","Titulo2","Titulo3"]
+```
+Se invocan: 
+```HTML 
+h2 #{titulo[0]}
+```
+en este caso el "0" corresponde a la primera posición en el array o arreglo. 
+
+## Condicionales y Ciclos (loops)
