@@ -134,20 +134,53 @@ mixin oferta
 se invocan de la siguiente forma
 ```HTML 
     +oferta
+    +oferta
+    +oferta
 ```
 Se llama n cantidad de veces 
 pero que pasa cuándo necesitamos que el contenido de cada oferta sea distinta
 En ese caso el Mixin recibe parametros. 
 ```HTML 
-mixin oferta (img, menuList, description)
+mixin oferta (img, menuList, description)// El contenido de los parentesis son los parametros
     oferta.contenido
         .box
-            .box__img: img(src="images/imagen.png")
+            .box__img: img(src="images/"+img)//la ruta debería ser siempre la misma
             .box__description
-                h3 #{menuList[2]}
-                p Lorem
+                h3=menuList
+                p=description
+```
+Y a la hora de invocar en los parentesis agregamos los parametros que deseamos modificar: 
+
+```HTML 
+    +oferta('nombreimagen', menuList[1], 'Texto de la descripción' )
+    +oferta()
+    +oferta()
 ```
 
+## Extend e Include 
+usualmente se utiliazan para los contenidos que se van a repetir, por ejemplos los head y los footer reguarlemte siempre son iguales. 
+Es una buena práctica crear un drectorio de componentes. Son componentes los reutilizables dentro de la platilla. 
+creado el head por ejmplo se invoca: 
+
+```HTML 
+doctype html
+html
+    include ruta/nombreDeArchivo.pug
+```
+cuando estamos generando plantillas y todo el header lo volvemos un archivo de pug debemos en el contenedor de el head la siguiente line
+
+```HTML 
+    block contenidos //en el final del documento a incluir a la altura del header, el block puede tener clauiqe nombre
+```
+y en el documento en el que se invoca ya no se usa el include si no un extend 
+```HTML 
+    extend ruta/nombreDeArchivo.pug
+    block contenidos
+    resto de códigp
+```
+la diferencia entre include y extend es que include agrega código más no permite agregar más (muestra error) mientras que extend si usamos el "block" con el nombre respectivo (podemos tener varios block) nos permitirá agregar más condigo en el momento que es invocado. 
+Se podría usar include en el caso anterior? si, pero ordena el código de forma no deseada.
+Además idealmente las variables y los mixin deberían de estar en su propio archivo de tal forma que sea "modular"
 
 
 
